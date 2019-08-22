@@ -6,7 +6,7 @@
   font-weight: 600;
   letter-spacing: 0.5em;
   box-shadow: 0px 1px 3px #2a2a2a;
-  background: image_url('congruent_outline')
+  background: image_url('congruent_outline.png');
 }
 
 .navbar-inverse a.navbar-brand  {
@@ -14,4 +14,25 @@
   letter-spacing: 0em;
   font-size: 28px;
   color: #DE1010;
+}
+
+.flixSlogan {
+  font-family: 'Audiowide', cursive;
+  color: #840505;
+}
+
+.hero {
+  background: image_url('space_hero.jpg');
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 370px;
+  }
+
+.frosted {
+  background: rgba(0, 0, 0, 0.5);
+  text-shadow: rgba(0, 0, 0, 0.95) 1px 1px 5px;
+  font-family: 'Orbitron', sans-serif;
+  color: #FFFFFF;
 }
