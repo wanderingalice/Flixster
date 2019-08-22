@@ -28,6 +28,7 @@
   -o-background-size: cover;
   background-size: cover;
   height: 370px;
+  box-shadow: 0px 3px 8px #2a2a2a;
   }
 
 .frosted {
@@ -35,4 +36,8 @@
   text-shadow: rgba(0, 0, 0, 0.95) 1px 1px 5px;
   font-family: 'Orbitron', sans-serif;
   color: #FFFFFF;
+}
+
+.btn-success {
+  background-color: blue;
 }
