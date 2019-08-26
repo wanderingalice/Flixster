@@ -52,3 +52,19 @@ body {
   background: image_url('ricepaper2.png');
   font-family: 'Aldrich', sans-serif;
 }
+
+.places-box {
+  -moz-box-shadow: 1px 1px 2px 0 #d0d0d0;
+  -webkit-box-shadow: 1px 1px 2px 0 #d0d0d0;
+  box-shadow: 1px 1px 2px 0 #d0d0d0;
+  background: rgba(179, 207, 255, 0.7);
+  border: 1px solid #ccc;
+  border-color: #e4e4e4 #bebebd #bebebd #e4e4e4;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 20px;
+}
+
+.places-box h2, .places-box h1 {
+  margin: 10px;
+}
