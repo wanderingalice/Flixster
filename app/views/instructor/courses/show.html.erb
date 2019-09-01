@@ -8,11 +8,23 @@
       <% @course.sections.each do |section| %>
         <li>
           <%= section.title %>
+          <br />
+          <ul>
+              <% section.lessons.each do |lesson| %>
+                <li>
+                  <b><%= lesson.title %></b>
+                  -
+                  <%= lesson.subtitle %>
+                </li>
+              <% end %>
+          </ul>
+          <br class="clr" />
         </li>
+        <%= link_to 'New Lesson', new_instructor_section_lesson_path(section), class: 'btn btn-primary btn-sm' %>
       <% end %>
       </ol>
     <br />
-    <%= link_to 'Add a new section...', new_instructor_course_section_path(@course), class: 'btn btn-primary btn-lg' %>
+    <%= link_to 'Add a new section...', new_instructor_course_section_path(@course), class: 'btn btn-primary' %>
     <br />
     <br />
     <%= link_to 'Preview As Student...', course_path(@course), class: 'btn btn-warning' %>
