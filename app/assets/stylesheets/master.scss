@@ -51,6 +51,7 @@
 body {
   background: image_url('ricepaper2.png');
   font-family: 'Aldrich', sans-serif;
+  margin-top: 65px;
 }
 
 .places-box {
@@ -83,4 +84,8 @@ body {
 
 .coursetitle {
   text-align: center;
+}
+
+li {
+  list-style-position: inside;
 }
