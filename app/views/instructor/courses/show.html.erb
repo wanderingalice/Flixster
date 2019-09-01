@@ -4,10 +4,10 @@
   <br />
   <div class="text-center">
     <br />
-      <ol>
+      <ul>
       <% @course.sections.each do |section| %>
         <li>
-          <%= section.title %>
+         <h3><b><%= section.title %></h3></b>
           <br />
           <ul>
               <% section.lessons.each do |lesson| %>
@@ -21,8 +21,10 @@
           <br class="clr" />
         </li>
         <%= link_to 'New Lesson', new_instructor_section_lesson_path(section), class: 'btn btn-primary btn-sm' %>
+        <br />
+        <br />
       <% end %>
-      </ol>
+      </ul>
     <br />
     <%= link_to 'Add a new section...', new_instructor_course_section_path(@course), class: 'btn btn-primary' %>
     <br />
