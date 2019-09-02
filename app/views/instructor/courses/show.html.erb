@@ -1,11 +1,11 @@
 <br />
 <div class="places-box col-10 offset-1">
-  <h1 class="text-center"><%= @course.title %></h1>
+  <h1 class="text-center"><%= current_course.title %></h1>
   <br />
   <div class="text-center">
     <br />
       <ul>
-      <% @course.sections.each do |section| %>
+      <% current_course.sections.each do |section| %>
         <li>
          <h3><b><%= section.title %></h3></b>
           <br />
@@ -26,10 +26,10 @@
       <% end %>
       </ul>
     <br />
-    <%= link_to 'Add a new section...', new_instructor_course_section_path(@course), class: 'btn btn-primary' %>
+    <%= link_to 'Add a new section...', new_instructor_course_section_path(current_course), class: 'btn btn-primary' %>
     <br />
     <br />
-    <%= link_to 'Preview As Student...', course_path(@course), class: 'btn btn-warning' %>
+    <%= link_to 'Preview As Student...', course_path(current_course), class: 'btn btn-warning' %>
   <br class="clr" />
   </div>
   <br />
