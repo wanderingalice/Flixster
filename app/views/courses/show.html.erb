@@ -2,6 +2,7 @@
 
 <div class="places-box col-10 offset-1">
   <h1 class="text-center"><%= @course.title %></h1>
+  <div class="text-center"><%= @course.description %></div>
   <br />
   <div class="row">
   <div class="col-sm-4 col-12 text-center">
@@ -17,7 +18,23 @@
     <% end %>
   </div>
     <div class="col-sm-8 col-12">
-      <%= @course.description %>
+        <div class="col-12">
+          <% @course.sections.each do |section| %>
+            <div class="section">
+              <h4><%= section.title %></h4>
+              <% section.lessons.each do |lesson| %>
+                <div class="lesson">
+                  <%= link_to lesson_path(lesson) do %>
+                  <b><%= lesson.title %></b>
+                  -
+                  <%= lesson.subtitle %>
+                  <% end %>
+                </div>
+              <% end %>
+            </div>
+            <br />
+          <% end %>
+        </div>
     </div>
   </div>
 </div>
