@@ -81,3 +81,5 @@ gem 'rails_admin', '~> 2.0'
 gem 'figaro'
 
 gem "fog-aws"
+
+gem "mini_magick"
