@@ -77,3 +77,7 @@ gem 'devise'
 gem 'carrierwave', '~> 2.0'
 
 gem 'rails_admin', '~> 2.0'
+
+gem 'figaro'
+
+gem "fog-aws"
