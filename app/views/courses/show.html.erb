@@ -4,6 +4,8 @@
   <h1 class="text-center"><%= @course.title %></h1>
   <div class="text-center"><%= @course.description %></div>
   <br />
+  <%= image_tag @course.image.url, class: "classimg img-fluid" unless @course.image.url.nil? %>
+  <br />
   <div class="row">
   <div class="col-sm-4 col-12 text-center">
     <span class="badge badge-default">
