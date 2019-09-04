@@ -34,7 +34,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.1.0', require: false
+gem 'bootsnap', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -83,3 +83,9 @@ gem 'figaro'
 gem "fog-aws"
 
 gem "mini_magick"
+
+gem 'carrierwave-aws', '~> 1.4.0'
+
+gem 'aws-sdk'
+# gem 'aws-sdk-s3', '~> 1'
+# gem 'aws-sdk-ec2', '~> 1'
