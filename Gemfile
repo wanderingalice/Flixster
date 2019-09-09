@@ -91,3 +91,5 @@ gem 'aws-sdk'
 # gem 'aws-sdk-ec2', '~> 1'
 
 gem 'stripe'
+
+gem 'ranked-model'
