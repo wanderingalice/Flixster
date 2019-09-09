@@ -89,3 +89,5 @@ gem 'carrierwave-aws', '~> 1.4.0'
 gem 'aws-sdk'
 # gem 'aws-sdk-s3', '~> 1'
 # gem 'aws-sdk-ec2', '~> 1'
+
+gem 'stripe'
