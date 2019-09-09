@@ -93,3 +93,5 @@ gem 'aws-sdk'
 gem 'stripe'
 
 gem 'ranked-model'
+
+gem 'jquery-ui-rails'
