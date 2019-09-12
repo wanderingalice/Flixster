@@ -1,0 +1,46 @@
+<br />
+<h1 class="text-center"><%= current_user.email %></h1>
+<div class="places-box col-10 offset-1">
+  <h1>What I'm Learning</h1>
+  <% current_user.enrolled_courses.each do |course| %>
+    <div class="text-center">
+      <h3><%= link_to course.title, course_path(course) %></h3>
+      <br />
+      <%= image_tag course.image.url, class: "classimg img-fluid" unless course.image.url.nil? %>
+      <br />
+      <div class="row">
+        <div class="col-12 col-sm-8">
+          <%= course.description %>
+        </div>
+        <div class="col-12 col-sm-4 text-center">
+          <%= link_to "More Info...", course_path(course), class: 'btn btn-lg btn-primary' %>
+        </div> 
+      </div>
+    </div>
+    <hr class="col-8 offset-2">
+    <br class="clr" />
+  <% end %>
+</div>
+<br />
+<br />
+<div class="places-box col-10 offset-1">
+  <h1>What I'm Teaching</h1>
+  <% current_user.courses.each do |course| %>
+    <div class="text-center">
+      <h3><%= link_to course.title, course_path(course) %></h3>
+      <br />
+      <%= image_tag course.image.url, class: "classimg img-fluid" unless course.image.url.nil? %>
+      <br />
+      <div class="row">
+        <div class="col-12 col-sm-8">
+          <%= course.description %>
+        </div>
+        <div class="col-12 col-sm-4 text-center">
+          <%= link_to "More Info...", course_path(course), class: 'btn btn-lg btn-primary' %>
+        </div> 
+      </div>
+    </div>
+    <hr class="col-8 offset-2">
+    <br class="clr" />
+  <% end %>
+</div>

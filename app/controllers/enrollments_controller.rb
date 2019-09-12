@@ -19,10 +19,13 @@ class EnrollmentsController < ApplicationController
         description: 'Flixter Premo Content',
         currency: 'usd'
       )
-    end
+    else
     
-    current_user.enrollments.create(course: current_course)
-    redirect_to course_path(current_course)
+      current_user.enrollments.create(course: current_course)
+      redirect_to course_path(current_course)
+      
+    end
+
     rescue Stripe::CardError => e
       flash[:error] = e.message
       redirect_to root_path
