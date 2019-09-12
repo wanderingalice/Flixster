@@ -7,65 +7,71 @@
   <%= image_tag @course.image.url, class: "classimg img-fluid" unless @course.image.url.nil? %>
   <br />
   <div class="row">
-  <div class="col-sm-4 col-12 text-center">
-    <span class="badge badge-default">
-      <div class="col-sm-4 col-12">
-        <%= number_to_currency @course.cost %>
-      </div>
-    </span>
-    <% if current_user && current_user == @course.user %>
-      <br />
-      <br />
-      <%= link_to 'Administer', instructor_course_path(@course), class: 'btn btn-danger btn-large' %>
-    <% end %>
-
-    <br />
-    <br />
-  <% if current_user %>
-    <% if current_user && current_user.enrolled_in?(@course) %>
-      <h3 class="badge badge-info">You're Enrolled!</h3>
-    <% else %>
-      <% if @course.free? %>
-        <%= link_to 'Enroll', course_enrollments_path(@course), class: 'btn btn-primary', method: :post %>
-      <% else %>
-        <%= form_tag course_enrollments_path(@course) do %>
-          <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                  data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-                  data-email="<%= current_user.email %>"
-                  data-description="<%= @course.title %> (<%= number_to_currency @course.cost %>)"
-                  data-amount="<%= (@course.cost * 100).to_i %>"
-                  data-locale="auto"></script>
-        <% end %>
+    <div class="col-sm-4 col-12 text-center">
+      <span class="badge badge-default">
+        <div class="col-sm-4 col-12">
+          <%= number_to_currency @course.cost %>
+        </div>
+      </span>
+      <% if current_user && current_user == @course.user %>
+        <br />
+        <br />
+        <%= link_to 'Administer', instructor_course_path(@course), class: 'btn btn-danger btn-large' %>
       <% end %>
-    <% end %>
-        <% else %>
-    <h3 class="badge badge-info">Sign In to Enroll!</h3>
-    <% end %>
 
-  </div>
+      <br />
+      <br />
+      <% if current_user %>
+        <% if current_user.enrolled_in?(@course) %>
+          <h3 class="badge badge-info">You're Enrolled!</h3>
+        <% else %>
+          <% if @course.free? %>
+            <%= link_to 'Enroll', course_enrollments_path(@course), class: 'btn btn-primary', method: :post %>
+          <% else %>
+            <%= form_tag course_enrollments_path(@course) do %>
+              <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                      data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                      data-email="<%= current_user.email %>"
+                      data-description="<%= @course.title %> (<%= number_to_currency @course.cost %>)"
+                      data-amount="<%= (@course.cost * 100).to_i %>"
+                      data-locale="auto"></script>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% else %>
+       <h3 class="badge badge-info">Sign In to Enroll!</h3>
+      <% end %>
+    </div>
+
     <div class="col-sm-8 col-12">
       <div class="col-12">
         <% @course.sections.rank(:row_order).each do |section| %>
           <div class="section">
-            <h4><%= section.title %></h4>
             <div class="row">
-            <% section.lessons.rank(:row_order).each do |lesson| %>
-             <div class="col-12 col-sm-6">
-              <div class="lesson text-center">
-                <%= link_to lesson_path(lesson) do %>
-                <b><%= lesson.title %></b>
-                <br />
-                <%= lesson.subtitle %>
-                <% end %>
+              <i class="fab fa-centos fa-2x"></i> &nbsp &nbsp
+              <h4><%= section.title %></h4>
+            </div> 
+            <div class="row">
+              <% section.lessons.rank(:row_order).each do |lesson| %>
+               <div class="col-12 col-sm-6">
+                <div class="lesson text-center">
+                  <i class="fas fa-arrow-circle-right fa-2x"></i> &nbsp
+                    <%= link_to lesson_path(lesson) do %>
+                    <b><%= lesson.title %></b>
+                    <br />
+                  <%= lesson.subtitle %>
+                  <% end %>
+                </div>
+                <br class="clr" />
               </div>
-              <br class="clr" />
+              <% end %>
             </div>
-            <% end %>
-          </div>
-        <br />
-      <% end %>
-    </div>
+           <br />
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 </div>
+<!-- extra div? -->

@@ -33,23 +33,31 @@
     <br />
       <ul class="sections">
       <% current_course.sections.rank(:row_order).each do |section| %>
-        <li data-update-url="<%= instructor_section_path(section) %>">
-         <h3><b><%= section.title %></h3></b>
+        <li data-update-url="<%= instructor_section_path(section) %>" class="section-li text-center">
+            <div class="header">
+                <i class="fab fa-centos"></i>
+                <h2><b><%= section.title %></b></h2>
+            </div>
           <ul class="lessons">
               <% section.lessons.rank(:row_order).each do |lesson| %>
               <li data-update-url="<%= instructor_lesson_path(lesson) %>">
-                <%= link_to lesson_path(lesson) do %>
-                  <b><%= lesson.title %></b>
-                  -
-                  <%= lesson.subtitle %>
-                <% end %>
+                <div class="row">
+                  <div class="col-1">
+                    <i class="fas fa-arrow-circle-right"></i>
+                  </div>
+                  <div class="col-8 offset-1 text-center">
+                  <%= link_to lesson_path(lesson) do %>
+                    <p><b><%= lesson.title %></b></p>
+                    <p><%= lesson.subtitle %></p>
+                  <% end %>
+                  </div>
+                </div>
               </li>
               <% end %>
+              <br />
            </ul>
-        <br class="clr" />
         <%= link_to 'New Lesson', new_instructor_section_lesson_path(section), class: 'btn btn-primary btn-sm' %>
         </li>
-        <br />
         <br />
       <% end %>
       </ul>
@@ -61,5 +69,6 @@
   <br class="clr" />
   </div>
   <br />
+</div>
   
 
