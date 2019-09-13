@@ -4,4 +4,16 @@ class StaticPagesController < ApplicationController
 
   end
 
+  def privacy
+
+  end
+
+  def teams
+
+  end
+
+  def careers
+
+  end
+
 end
